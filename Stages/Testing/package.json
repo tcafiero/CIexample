@@ -1,0 +1,14 @@
+{
+  "name": "hiltestersimulator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "HILTestSimulator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Toni Cafiero",
+  "license": "ISC",
+  "dependencies": {
+    "serialport": "^4.0.7"
+  }
+}
