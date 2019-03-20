@@ -21,7 +21,7 @@ pipeline {
         stage('Build') {
           steps {
             echo 'Build'
-            bat(returnStatus: true, script: '.\Stages\Build\compile.cmd')
+            bat(returnStatus: true, script: './Stages/Build/compile.cmd')
           }
         }
       }
