@@ -16,10 +16,10 @@ pipeline {
         stage('Test') {
           steps {
             echo 'Test...'
-			bat 'call "Source/Test/try.cmd"'
+            bat 'call "Source/TestCode/try.cmd"'
             bat(returnStatus: true, script: 'cd')
             bat(returnStatus: true, script: 'call Source/TestCode/try.cmd')
-           }
+          }
         }
         stage('Build') {
           steps {
