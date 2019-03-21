@@ -17,13 +17,13 @@ pipeline {
           steps {
             echo 'Test...'
             bat(returnStatus: true, script: 'cd')
-            bat(returnStatus: true, script: './Source/Test/try.cmd')
+            bat(returnStatus: true, script: 'call ./Source/Test/try.cmd')
            }
         }
         stage('Build') {
           steps {
             echo 'Build'
-            bat(returnStatus: true, script: 'rem ./Stage/Building/Build.cmd')
+            bat(returnStatus: true, script: 'rem call ./Stage/Building/Build.cmd')
           }
         }
       }
