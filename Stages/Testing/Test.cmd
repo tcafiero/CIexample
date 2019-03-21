@@ -1,5 +1,5 @@
 @echo off
-node "HILTestSimulator.js" COM5 10000 500 10
+node "./Source/TestCode/HILTestSimulator.js" COM5 10000 500 10
 IF %ERRORLEVEL% == 1 (
    echo HIL Test Not Passed
    exit /b %errorlevel%
