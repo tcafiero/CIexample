@@ -6,27 +6,29 @@ pipeline {
 
   }
   stages {
-    stage('Deploy') {
+    stage('Build') {
       parallel {
-        stage('Deploy') {
+        stage('Compile') {
           steps {
             echo 'Deploy...'
-          }
-        }
-        stage('Test') {
-          steps {
-            echo 'Test...'
-            bat 'call "Source/TestCode/try.cmd"'
-            bat(returnStatus: true, script: 'cd')
-            bat(returnStatus: true, script: 'call Source/TestCode/try.cmd')
           }
         }
         stage('Build') {
           steps {
             echo 'Build'
-            bat(returnStatus: true, script: 'rem call ./Stage/Building/Build.cmd')
+            bat(returnStatus: true, script: 'call "./Stage/Building/Build.cmd"')
           }
         }
+      }
+    }
+    stage('Test') {
+      steps {
+        echo 'Test'
+      }
+    }
+    stage('Release') {
+      steps {
+        echo 'Release'
       }
     }
   }
