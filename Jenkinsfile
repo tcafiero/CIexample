@@ -16,7 +16,7 @@ pipeline {
         stage('Test') {
           steps {
             echo 'Test...'
-            bat 'call "Source/TestCode/try.cmd"'
+            bat(script: 'call "Source/TestCode/try.cmd"', returnStatus: true)
             bat(returnStatus: true, script: 'cd')
             bat(returnStatus: true, script: 'call Source/TestCode/try.cmd')
           }
@@ -24,7 +24,7 @@ pipeline {
         stage('Build') {
           steps {
             echo 'Build'
-            bat(returnStatus: true, script: 'rem call ./Stage/Building/Build.cmd')
+            bat(returnStatus: true, script: 'call "./Stage/Building/Build.cmd"')
           }
         }
       }
