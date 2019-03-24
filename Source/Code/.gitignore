@@ -1,1 +1,7 @@
-/VolvoVFsample_sfun.mexw64
+*
+!*.c
+!*.h
+!*.s
+!.slx
+!Makefile
+!*.mak
