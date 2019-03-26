@@ -12,7 +12,7 @@ pipeline {
       }
       steps {
         echo 'Build'
-        bat(script: 'call "Stage\\Building\\Build.cmd"', returnStatus: true)
+        bat(script: 'call "Stages\\Building\\Build.cmd"', returnStatus: true)
       }
     }
     stage('Stage') {
