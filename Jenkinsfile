@@ -14,7 +14,7 @@ pipeline {
         echo 'Build'
 		timeout(time: 10, unit: 'MINUTES')
 		{
-			bat(script: '"Stages\\Building\\Build.cmd"', returnStatus: true)
+			bat(script: '"C:\\CIexample\\workspace\\CIexample_develop\\Stages\\Building\\Build.cmd"', returnStatus: true)
 		}
       }
     }
