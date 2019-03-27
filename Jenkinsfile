@@ -6,18 +6,18 @@ pipeline {
 
   }
   stages {
+    timeout(time: 10, unit: 'MINUTES')
+	{
     stage('Build') {
       when {
         branch 'develop'
       }
       steps {
         echo 'Build'
-        timeout(time: 10, unit: 'MINUTES')
-		{
         bat(script: 'call "Stages\\Building\\Build.cmd"', returnStatus: true)
-		}
       }
     }
+	}
     stage('Stage') {
       when {
         branch 'stage'
