@@ -12,8 +12,10 @@ pipeline {
       }
       steps {
         echo 'Build'
-        bat(script: 'call "Stages\\Building\\Build.cmd"', returnStatus: true)
         timeout(time: 10, unit: 'MINUTES')
+		{
+        bat(script: 'call "Stages\\Building\\Build.cmd"', returnStatus: true)
+		}
       }
     }
     stage('Stage') {
