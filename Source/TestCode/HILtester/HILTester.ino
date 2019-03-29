@@ -122,8 +122,8 @@ void RedLed(void) {
   previousTimePeriod=timePeriod;
   return;
   }
-  if(timePeriod < lowThreshold) EndTest("Error: smaller period");
-  if(timePeriod > highThreshold) EndTest("Error: greater period");
+  if(timePeriod < lowThreshold) EndTest("Error: measured period is less then expected");
+  if(timePeriod > highThreshold) EndTest("Error: measured period is greater then expected");
   // Switch Led state
   delay(10);
   if(digitalRead(PinRedLed) == digitalRead(PinGreenLed))

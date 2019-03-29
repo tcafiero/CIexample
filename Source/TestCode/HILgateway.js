@@ -1,4 +1,5 @@
-var serialport = require('serialport');
+const SerialPort = require('serialport')
+const Readline = require('@serialport/parser-readline')
  
 // list serial ports:
 
@@ -10,16 +11,17 @@ serialport.list(function (err, ports) {
 });
 */
 
-var myPort = new serialport(process.argv[2], {
+const myPort = new SerialPort(process.argv[2], {
    baudRate: 9600,
    // look for return and newline at the end of each data packet:
-   parser: serialport.parsers.readline("\n")
  });
  
-myPort.on('open', showPortOpen);
-myPort.on('data', sendSerialData);
-myPort.on('close', showPortClose);
-myPort.on('error', showError); 
+const parser = myPort.pipe(new Readline({ delimiter: '\r\n' }))
+ 
+parser.on('open', showPortOpen);
+parser.on('data', sendSerialData);
+parser.on('close', showPortClose);
+parser.on('error', showError); 
 
 function showPortOpen() {
    console.log('port open. Data rate: ' + myPort.options.baudRate);

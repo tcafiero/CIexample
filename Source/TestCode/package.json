@@ -1,14 +1,15 @@
 {
-  "name": "hiltestersimulator",
+  "name": "hilgateway",
   "version": "1.0.0",
   "description": "",
-  "main": "HILTestSimulator.js",
+  "main": "HILgateway.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "TestCase": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Toni Cafiero",
   "license": "ISC",
   "dependencies": {
-    "serialport": "^4.0.7"
+    "node-pre-gyp": "latest",
+    "serialport": "latest"
   }
 }
