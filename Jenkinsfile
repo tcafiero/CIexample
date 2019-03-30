@@ -18,6 +18,18 @@ pipeline {
 		}
       }
     }
+    stage('Test') {
+      when {
+        branch 'develop'
+      }
+      steps {
+        echo 'Test'
+		timeout(time: 10, unit: 'MINUTES')
+		{
+			bat(script: '"C:\\CIexample\\workspace\\CIexample_develop\\Stages\\Testing\\Test.cmd"', returnStatus: true)
+		}
+      }
+    }
     stage('Stage') {
       when {
         branch 'stage'
