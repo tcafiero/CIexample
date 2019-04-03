@@ -1,4 +1,5 @@
-@echo off
+rem @echo off
+where node
 node "%~dp0\HILgateway.js" COM52 5000 500 10
 rem node "%~dp0\HILgateway.js" COM52 5000 500 10
 IF %ERRORLEVEL% == 1 (
