@@ -1,5 +1,5 @@
-const SerialPort = require('./serialport')
-const Readline = require('./@serialport/parser-readline')
+const SerialPort = require('serialport')
+const Readline = require('@serialport/parser-readline')
  
 // list serial ports:
 
