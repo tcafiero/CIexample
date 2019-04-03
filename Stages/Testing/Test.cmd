@@ -1,2 +1,2 @@
-rem @echo off
+@echo off
 .\Source\TestCode\TestCase.cmd
