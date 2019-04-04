@@ -3,7 +3,7 @@ pipeline {
     node {
       label 'toolchain'
     }
-	triggers { pollSCM('* * * * *') }
+	triggers { pollSCM('*/1 * * * *') }
 
   }
   stages {
