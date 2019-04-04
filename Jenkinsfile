@@ -15,11 +15,7 @@ pipeline {
       }
       steps {
         echo 'Build'
-		bat(script: '"C:\\CIexample\\workspace\\CIexample_develop\\Stages\\Building\\Build.cmd"', returnStatus: true)
-		if errorlevel 1 (
-			echo Build Failure
-			exit /b %errorlevel%
-		)		
+		bat(script: '"C:\\CIexample\\workspace\\CIexample_develop\\Stages\\Building\\Build.cmd"')
       }
     }
     stage('Test') {
@@ -31,11 +27,7 @@ pipeline {
       }
       steps {
         echo 'Test'
-		bat(script: '"C:\\CIexample\\workspace\\CIexample_develop\\Stages\\Testing\\Test.cmd"', returnStatus: true)
-		if errorlevel 1 (
-			echo Test Failure
-			exit /b %errorlevel%
-		)		
+		bat(script: '"C:\\CIexample\\workspace\\CIexample_develop\\Stages\\Testing\\Test.cmd"')
       }
     }
     stage('Stage') {
