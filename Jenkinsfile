@@ -10,24 +10,32 @@ pipeline {
       when {
         branch 'develop'
       }
+      options {
+        timeout(time: 10, unit: 'MINUTES') 
+      }
       steps {
         echo 'Build'
-		timeout(time: 10, unit: 'MINUTES')
-		{
-			bat(script: '"C:\\CIexample\\workspace\\CIexample_develop\\Stages\\Building\\Build.cmd"', returnStatus: true)
-		}
+		def retstat = bat(script: '"C:\\CIexample\\workspace\\CIexample_develop\\Stages\\Building\\Build.cmd"', returnStatus: true)
+		if errorlevel 1 (
+			echo Build Failure
+			exit /b %errorlevel%
+		)		
       }
     }
     stage('Test') {
       when {
         branch 'develop'
       }
+      options {
+        timeout(time: 10, unit: 'MINUTES') 
+      }
       steps {
         echo 'Test'
-		timeout(time: 10, unit: 'MINUTES')
-		{
-			bat(script: '"C:\\CIexample\\workspace\\CIexample_develop\\Stages\\Testing\\Test.cmd"', returnStatus: true)
-		}
+		def retstat = bat(script: '"C:\\CIexample\\workspace\\CIexample_develop\\Stages\\Testing\\Test.cmd"', returnStatus: true)
+		if errorlevel 1 (
+			echo Test Failure
+			exit /b %errorlevel%
+		)		
       }
     }
     stage('Stage') {
