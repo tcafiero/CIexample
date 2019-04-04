@@ -15,7 +15,7 @@ pipeline {
       }
       steps {
         echo 'Build'
-		def retstat = bat(script: '"C:\\CIexample\\workspace\\CIexample_develop\\Stages\\Building\\Build.cmd"', returnStatus: true)
+		bat(script: '"C:\\CIexample\\workspace\\CIexample_develop\\Stages\\Building\\Build.cmd"', returnStatus: true)
 		if errorlevel 1 (
 			echo Build Failure
 			exit /b %errorlevel%
@@ -31,7 +31,7 @@ pipeline {
       }
       steps {
         echo 'Test'
-		def retstat = bat(script: '"C:\\CIexample\\workspace\\CIexample_develop\\Stages\\Testing\\Test.cmd"', returnStatus: true)
+		bat(script: '"C:\\CIexample\\workspace\\CIexample_develop\\Stages\\Testing\\Test.cmd"', returnStatus: true)
 		if errorlevel 1 (
 			echo Test Failure
 			exit /b %errorlevel%
