@@ -3,9 +3,8 @@ pipeline {
     node {
       label 'toolchain'
     }
-	triggers { pollSCM('*/1 * * * *') }
-
   }
+  triggers { pollSCM('H */4 * * 1-5') }
   stages {
     stage('Build') {
       when {
